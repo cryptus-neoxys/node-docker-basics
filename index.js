@@ -57,7 +57,7 @@ const connectWithRetry = () => {
     });
 };
 
-app.get("/", async (req, res) => {
+app.get("/api/v1", async (req, res) => {
   return res.status(200).json({ messge: "Hey there!" });
 });
 
