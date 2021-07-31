@@ -24,6 +24,8 @@ let redisClient = redis.createClient({
 
 const app = express();
 
+app.enable("trust proxy");
+
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
@@ -58,6 +60,7 @@ const connectWithRetry = () => {
 };
 
 app.get("/api/v1", async (req, res) => {
+  console.log("Hey there!");
   return res.status(200).json({ messge: "Hey there!" });
 });
 
