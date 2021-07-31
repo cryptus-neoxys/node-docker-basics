@@ -1,5 +1,6 @@
 const { json } = require("express");
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const redis = require("redis");
 const session = require("express-session");
@@ -23,7 +24,7 @@ let redisClient = redis.createClient({
 });
 
 const app = express();
-
+app.use(cors());
 app.enable("trust proxy");
 
 app.use(
